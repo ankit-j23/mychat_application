@@ -14,40 +14,54 @@ export const useAuthStore = create((set)=>({
         try {
             const res = await axiosInstance.get('/auth/check');
 
-            set({authUser: res.data})
+            set({authUser: res.data});
         } catch (error) {
-            console.log("Some error occured in checkAuth" , error)
-            set({authUser: null})
+            console.log("Some error occured in checkAuth" , error);
+            set({authUser: null});
         }finally{
-            set({isCheckingAuth: false})
+            set({isCheckingAuth: false});
         }
     },
 
     signup: async(data)=>{
-        set({isSigningUp: true})
+        set({isSigningUp: true});
         try {
-            const res  = await axiosInstance.post("/auth/signup" , data)
-            set({authUser: res.data})
-            toast.success("Account created successfully")
+            const res  = await axiosInstance.post("/auth/signup" , data);
+            set({authUser: res.data});
+            toast.success("Account created successfully");
         } catch (error) {
-            // console.log("Some error occured in the signup function in useAuthStore" + error.message)
-            toast.error(error.response.data.message)
+            // console.log("Some error occured in the signup function in useAuthStore" + error.message);
+            toast.error(error.response.data.message);
         } finally {
-            set({isSigningUp: false})
+            set({isSigningUp: false});
         }
     },
 
     login: async(data)=>{
-        set({isLogingIn: true})
+        set({isLogingIn: true});
         try {
-            const res  = await axiosInstance.post("/auth/login" , data)
-            set({authUser: res.data})
-            toast.success("Logged in successfully")
+            const res  = await axiosInstance.post("/auth/login" , data);
+            set({authUser: res.data});
+            toast.success("Logged in successfully");
         } catch (error) {
-            // console.log("Some error occured in the login function in useAuthStore" + error.message)
-            toast.error(error.response.data.message)
+            // console.log("Some error occured in the login function in useAuthStore" + error.message);
+            toast.error(error.response.data.message);
         } finally {
-            set({isLogingIn: false})
+            set({isLogingIn: false});
+        }
+    },
+
+    updateProfile: async(data)=>{
+        try {
+            set({isUpdatingProfile: true});
+            const res = await axiosInstance.put("/auth/updateProfile" , data);
+            set({authUser: res.data});
+            toast.success("Profile uploaded successfully");
+        } catch (error) {
+            console.log("Error in uplaoding the profile image " + error.message);
+            toast.error(error.response.data.message);
+        } finally {
+            set({isUpdatingProfile: false});
         }
     },
 

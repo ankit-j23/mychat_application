@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import {Loader} from 'lucide-react'
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -40,7 +39,6 @@ const App = () => {
           <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login"/>}></Route>
           <Route path="/signup" element={!authUser ? <SignupPage /> : <Navigate to="/"/>}></Route>
           <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/"/>}></Route>
-          <Route path="/settings" element={<SettingsPage />}></Route>
           <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login"/>}></Route>
         </Routes>
 

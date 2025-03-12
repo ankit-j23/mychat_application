@@ -41,8 +41,8 @@ const SignupPage = () => {
         {/* container for the logo image and related texts there */}
         <div className=" w-full flex flex-col items-center justify-center gap-1">
           {/* logo , welcome text and the desc text here */}
-          <div className="size-12">
-            <MessageSquareMore className="size-10" />
+          <div className="size-12 rounded-lg bg-accent/10 flex items-center justify-center">
+            <MessageSquareMore className="size-10 text-accent" />
           </div>
           <h1 className="text-2xl font-bold">Welcome !!</h1>
           <p className="text-base-content/80">
