@@ -10,7 +10,7 @@ const ChatHeader = () => {
     <div className="p-2.5 border-b border-base-300">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="profile">
+          <div className="avatar">
             <div className="size-10 relative">
               <img
               className="rounded-full"
@@ -31,7 +31,7 @@ const ChatHeader = () => {
           </div>
         </div>
 
-        <button onClick={() => setSelectedUser(null)}>
+        <button onClick={() => setSelectedUser(null)} type="button">
             <X/>
         </button>
       </div>

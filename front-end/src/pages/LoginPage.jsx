@@ -27,9 +27,9 @@ const LoginPage = () => {
           <div className="size-12 rounded-lg bg-accent/10 flex items-center justify-center">
             <MessageSquareMore className="size-10 text-accent" />
           </div>
-          <h1 className="text-2xl font-bold">Welcome !!</h1>
+          <h1 className="text-2xl font-bold">Welcome Back!!</h1>
           <p className="text-base-content/80">
-            Get started with your free account.
+            Sign in to Get started with you conversations.
           </p>
         </div>
         {/* form for input fields and submit button */}

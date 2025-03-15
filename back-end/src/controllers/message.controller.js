@@ -32,7 +32,9 @@ export const sendMessage = async (req , res) =>{
         const { id:receiverId } = req.params;
 
         //my id
-        const myId = req.user._id;
+        const senderId = req.user._id;
+
+        // receiverId = new mongoose.Types.ObjectId(receiverId);
 
         //keeping the imageurl undefined at first and when the message type is image , we'll get our imageUrl from cloudinary
         let imageUrl;
@@ -58,7 +60,7 @@ export const sendMessage = async (req , res) =>{
 
         res.status(201).json(newMessage)
     } catch (error) {
-        console.log("Some error occured in the sendMessage controller");
+        console.log("Some error occured in the sendMessage controller" + error);
         res.status(500).json({message: "Internal Server Error"})
     }
 }
