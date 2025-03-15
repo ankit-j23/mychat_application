@@ -16,9 +16,8 @@ const NoChat = () => {
 
             {/* extra text */}
             <h2 className='text-2xl font-bold'>Welocme to ChatUs</h2>
-            <p className='text-base-content/60'>Jump to conversation and start chatting...</p>
+            <p className='text-base-content/60'>Jump to a conversation and start chatting...</p>
         </div>
-      NoChat
     </div>
   )
 }
