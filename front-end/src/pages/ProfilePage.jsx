@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { Camera, Mail, User , LogOut} from "lucide-react";
+import { Camera, Mail, User , LogOut, UserCheck} from "lucide-react";
+import { useChatStore } from "../store/useChatStore";
 
 const ProfilePage = () => {
   const { authUser, isUpdatingProfile, updateProfile , logout} = useAuthStore();
+  const {setSelectedUser} = useChatStore();
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleLogout = () =>{
+    logout();
+    setSelectedUser(null);
+  }
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -104,7 +111,7 @@ const ProfilePage = () => {
           </div>
           <button
             className="flex items-center gap-2 cursor-pointer place-self-center -mt-4"
-            onClick={logout}
+            onClick={handleLogout}
           >
             <LogOut className="size-5" />
             <span className="hidden sm:inline">Logout</span>

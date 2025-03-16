@@ -35,24 +35,24 @@ const SignupPage = () => {
     }
   }
   return (
-    <div className=" min-h-screen flex items-center justify-center">
+    <div className="h-screen px-4 sm:px-0 pt-24 sm:pt-32 lg:pt-44">
       {/* main container for the signup content */}
-      <div className="flex flex-col items-center justify-center border p-6 w-[450px] gap-6 rounded-lg">
+      <div className="flex flex-col items-center justify-center border max-w-md gap-6 rounded-lg mx-auto p-4 sm:p-8 py-8">
         {/* container for the logo image and related texts there */}
         <div className=" w-full flex flex-col items-center justify-center gap-1">
           {/* logo , welcome text and the desc text here */}
           <div className="size-12 rounded-lg bg-accent/10 flex items-center justify-center">
-            <MessageSquareMore className="size-10 text-accent" />
+            <MessageSquareMore className="size-6 sm:size-10 text-accent" />
           </div>
-          <h1 className="text-2xl font-bold">Welcome !!</h1>
-          <p className="text-base-content/80">
+          <h1 className="text-lg sm:text-2xl font-bold">Welcome !!</h1>
+          <p className="text-xs sm:text-base text-base-content/80">
             Get started with your free account.
           </p>
         </div>
         {/* form for input fields and submit button */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full mt-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 sm:gap-6 w-full mt-4">
           <div className=" form-control flex flex-col gap-0.5">
-            <label className="label font-medium ml-1 text-white">
+            <label className="hidden sm:flex label font-medium ml-1 text-white">
               <span className="label-text">Full Name</span>
             </label>
             <div className="relative">
@@ -69,7 +69,7 @@ const SignupPage = () => {
             </div>
           </div>
           <div className="form-control flex flex-col gap-0.5">
-            <label className="label font-medium ml-1 text-white">
+            <label className="hidden sm:flex label font-medium ml-1 text-white">
               <span className="label-text">Email</span>
             </label>
             <div className="relative">
@@ -86,7 +86,7 @@ const SignupPage = () => {
             </div>
           </div>
           <div className="form-control flex flex-col gap-0.5">
-            <label className="label font-medium ml-1 text-white">
+            <label className="hidden sm:flex label font-medium ml-1 text-white">
               <span className="label-text">Password</span>
             </label>
             <div className="relative">
@@ -128,7 +128,7 @@ const SignupPage = () => {
         </form>
         {/* text for navigating to login */}
         <div>
-          <p className="text-base-content/60">
+          <p className="text-sm sm:text-base text-base-content/60">
             Already have an account?{" "}
             <Link to='/login' className="link link-primary">Sign in</Link>
           </p>
