@@ -64,7 +64,7 @@ const ChatContainer = () => {
             </div>
             {/* time stamps */}
             <div className="chat-header mb-1">
-                  <time className="text-xs opacity-50 ml-1">{formatMessagesTime()}</time>
+                  <time className="text-xs opacity-50 ml-1">{formatMessagesTime(message.createdAt)}</time>
             </div>
             {/* chat bubble */}
             <div className="chat-bubble flex flex-col">

@@ -19,7 +19,7 @@ const App = () => {
     checkAuth()
   } , [checkAuth])
 
-  console.log(onlineUsers)
+  // console.log(onlineUsers)
 
   // a loader untill the i check authenticated or not and till i have user data in authUser
   if(isCheckingAuth && !authUser){

@@ -10,6 +10,7 @@ const Sidebar = () => {
 
   useEffect(()=>{
     getUsers();
+    setSelectedUser(null)
   } , [getUsers])
 
   //using skeleton when users are loading

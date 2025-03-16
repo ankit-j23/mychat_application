@@ -18,9 +18,9 @@ const LoginPage = () => {
     login(formData)
   }
   return (
-    <div className=" min-h-screen flex items-center justify-center">
+    <div className="h-screen px-4 sm:px-0 pt-24 sm:pt-32 lg:pt-44">
       {/* main container for the signup content */}
-      <div className="flex flex-col items-center justify-center border p-6 w-[450px] gap-6 rounded-lg">
+      <div className="flex flex-col items-center justify-center border max-w-md gap-6 rounded-lg mx-auto p-4 py-8">
         {/* container for the logo image and related texts there */}
         <div className=" w-full flex flex-col items-center justify-center gap-1">
           {/* logo , welcome text and the desc text here */}
