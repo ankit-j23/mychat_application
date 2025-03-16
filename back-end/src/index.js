@@ -18,6 +18,9 @@ app.use(cors({
     credentials: true
 }));
 
+const PORT = process.env.PORT;
+const __dirname = path.resolve();
+
 app.use("/api/auth" , authRoutes);
 app.use("/api/message" , messageRoutes)
 
@@ -28,9 +31,6 @@ if(process.env.NODE_ENV === "production"){
         res.sendFile(path.join(__dirname , "../front-end" , "dist" , "index.html"))
     })
 }
-
-const PORT = process.env.PORT;
-const __dirname = path.resolve();
 
 server.listen(PORT , ()=>{
     console.log("The app is listening on the port " + PORT);
