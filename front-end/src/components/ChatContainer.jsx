@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useChatStore } from "../store/useChatStore";
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
@@ -7,13 +7,25 @@ import { useAuthStore } from "../store/useAuthStore";
 import { formatMessagesTime } from "../lib/formattime";
 
 const ChatContainer = () => {
-  const { messages, isMessageLoading, getMessages, selectedUser } =
-    useChatStore();
+  const { messages, isMessageLoading, getMessages, selectedUser , listenToMessages , unlistenToMessage} = useChatStore();
   const { authUser } = useAuthStore();
 
   useEffect(() => {
     getMessages(selectedUser._id);
-  }, [selectedUser._id, getMessages]);
+
+    listenToMessages();
+
+    return () => unlistenToMessage();
+  }, [selectedUser._id, getMessages , listenToMessages , unlistenToMessage]);
+
+  //for scrolling through the end when scrolled through
+  const messageEndRef = useRef();
+
+  useEffect(()=>{
+    if(messageEndRef.current && messages){
+      messageEndRef.current.scrollIntoView({behaviour: "smooth"})
+    }
+  }, [messages])
 
   if (isMessageLoading)
     return (
@@ -35,6 +47,7 @@ const ChatContainer = () => {
             className={`chat ${
               message.senderId === authUser._id ? "chat-end" : "chat-start"
             }`}
+            ref={messageEndRef}
           >
             <div className="chat-image avatar">
               <div className="size-10">

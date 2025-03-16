@@ -12,14 +12,14 @@ import { useAuthStore } from "./store/useAuthStore";
 
 const App = () => {
   //destructuring states from the authSotre , zustand
-  const {authUser, checkAuth, isCheckingAuth} = useAuthStore();
+  const {authUser, checkAuth, isCheckingAuth , onlineUsers} = useAuthStore();
 
   //checking if the user is authenticated or not once imm. after the user visits the site or refresh
   useEffect(()=>{
     checkAuth()
   } , [checkAuth])
 
-  console.log(authUser)
+  console.log(onlineUsers)
 
   // a loader untill the i check authenticated or not and till i have user data in authUser
   if(isCheckingAuth && !authUser){
