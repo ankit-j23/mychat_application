@@ -4,7 +4,8 @@ import authRoutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.route.js'
 import { connectDB } from './lib/db.js';
 import cookieParser from 'cookie-parser';
-import cors from 'cors'
+import cors from 'cors';
+import path from 'path';
 
 import { app , server } from './lib/socketio.js';
 
@@ -20,7 +21,16 @@ app.use(cors({
 app.use("/api/auth" , authRoutes);
 app.use("/api/message" , messageRoutes)
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "../front-end/dist")));
+
+    app.get("*" , ( req,res ) => {
+        res.sendFile(path.join(__dirname , "../front-end" , "dist" , "index.html"))
+    })
+}
+
 const PORT = process.env.PORT;
+const __dirname = path.resolve();
 
 server.listen(PORT , ()=>{
     console.log("The app is listening on the port " + PORT);

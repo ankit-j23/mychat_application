@@ -1,7 +1,7 @@
 
 # Real-Time Chat Application
 
-![App Image](/frontend/public/app-image.png)
+![App Image](/front-end/public/app-image.png)
 
 A real-time chat application built using React.js and Node.js with WebSocket communication (Socket.IO) for real-time messaging. This project supports user authentication, chat history, and online user tracking.This also supports image upload and image sharing feature which has been built using cloudinary services.
 
